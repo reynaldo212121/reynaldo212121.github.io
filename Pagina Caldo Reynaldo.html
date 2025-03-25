@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Promoción Caldos Constitución</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    background-color: #000;
+                    color: white;
+                    margin: 0;
+                    padding: 0;
+                }
+        
+                .container {
+                    width: 80%;
+                    margin: auto;
+                    padding: 20px;
+                }
+        
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+        
+                .tazas {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 20px;
+                    margin-top: 20px;
+                }
+        
+                .taza {
+                    width: 80px;
+                    height: 80px;
+                    background-color: transparent;
+                    border: 2px solid white;
+                    border-radius: 10px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 40px;
+                }
+        
+                .taza::before {
+                    content: "🍜";
+                }
+        
+                .taza.activa {
+                    background-color: yellow;
+                    border-color: yellow;
+                }
+        
+                #mensaje {
+                    display: none;
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: yellow;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <div class="container">
+                <img src="Banner Caldo de pollo.PNG" alt="Promoción Caldos Constitución">
+                <div class="tazas">
+                    <!-- Se generarán 10 tazas aquí con JavaScript -->
+                </div>
+                <p id="mensaje">¡Felicidades! Has ganado un caldo gratis. 🎉</p>
+            </div>
+        
+            <script>
+                const tazasContainer = document.querySelector(".tazas");
+                const mensaje = document.getElementById("mensaje");
+                const totalTazas = 10;
+                let tazasClickeadas = 0;
+        
+                for (let i = 0; i < totalTazas; i++) {
+                    const taza = document.createElement("div");
+                    taza.classList.add("taza");
+                    taza.dataset.index = i;
+                    taza.addEventListener("click", function() {
+                        if (!this.classList.contains("activa") && tazasClickeadas === i) {
+                            this.classList.add("activa");
+                            tazasClickeadas++;
+        
+                            // Abrir el lector de QR
+                            abrirLectorQR();
+        
+                            if (tazasClickeadas === totalTazas) {
+                                mensaje.style.display = "block"; // Mostrar mensaje de éxito
+                            }
+                        }
+                    });
+                    tazasContainer.appendChild(taza);
+                }
+        
+                function abrirLectorQR() {
+                    alert("Abriendo lector de QR...");
+                    // Aquí podrías agregar una funcionalidad real para escanear códigos QR
+                }
+            </script>
+        
+        </body>
+        </html></h1>
+</body>
+</html>
